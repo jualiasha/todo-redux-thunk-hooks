@@ -1,0 +1,19 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "completed": false,
+      "text": "hello from ny note-list"
+    },
+    {
+      "id": 2,
+      "completed": true,
+      "text": "second hello from ny note-list"
+    },
+    {
+      "id": 3,
+      "completed": false,
+      "text": "third hello from ny note-list"
+    }
+  ]
+}
