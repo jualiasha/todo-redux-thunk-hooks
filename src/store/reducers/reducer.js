@@ -1,7 +1,10 @@
 import * as actionTypes from "../actions";
+import noteServices from "../../services/notes";
 
 const reducer = (state = [], action) => {
   switch (action.type) {
+    case actionTypes.INIT_NOTES:
+      return action.data;
     case actionTypes.ADD_TODO:
       return state.concat({
         id: action.id + 1,
@@ -15,6 +18,7 @@ const reducer = (state = [], action) => {
         completed: !noteToChange.completed,
       };
       return state.map((note) => (note.id !== action.id ? note : changeNote));
+
     /* [
         ...state,
         {
@@ -32,5 +36,15 @@ const reducer = (state = [], action) => {
   notes: [{ id: 1, text: "something notes", completed: false }],
   text: [{ id: 1, text: "something text", completed: false }],
 }; */
+
+export const initializeNotes = () => {
+  return async (dispatch) => {
+    const notes = await noteServices.getAll();
+    dispatch({
+      type: actionTypes.INIT_NOTES,
+      data: notes,
+    });
+  };
+};
 
 export default reducer;
