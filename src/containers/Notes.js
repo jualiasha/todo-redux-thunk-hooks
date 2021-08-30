@@ -1,11 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { TOGGLE_TODO } from "../store/actions";
+
 import * as actionTypes from "../store/actions";
+import { removeOneNote } from "../store/actions";
 
 const Notes = () => {
-  /* const notes = useSelector((state) => state.notes);
-  const texts = useSelector((state) => state.text); */
   const notes = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -13,6 +12,7 @@ const Notes = () => {
     type: actionTypes.TOGGLE_TODO,
     id: id,
   });
+
   return (
     <div>
       <ul>
@@ -23,14 +23,12 @@ const Notes = () => {
             className={note.completed ? "strike" : ""}
           >
             {note.text}
+            <button onClick={() => dispatch(removeOneNote(note.id))}>
+              Remove
+            </button>
           </li>
         ))}
       </ul>
-      {/* <ul>
-        {texts.map((text) => (
-          <li key={text.id}>{text.text}</li>
-        ))}
-      </ul> */}
     </div>
   );
 };

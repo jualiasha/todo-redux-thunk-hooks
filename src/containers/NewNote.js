@@ -1,7 +1,6 @@
 import React from "react";
-import * as actionTypes from "../store/actions";
-import { useSelector, useDispatch } from "react-redux";
-import { createNote } from "../store/reducers/reducer";
+import { useDispatch } from "react-redux";
+import { createNote } from "../store/actions";
 
 const NewNote = () => {
   /*  const notes = useSelector((state) => state);

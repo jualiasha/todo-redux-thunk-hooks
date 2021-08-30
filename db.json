@@ -1,24 +1,24 @@
 {
   "notes": [
     {
-      "id": 1,
+      "text": "make styles for new todo list",
       "completed": false,
-      "text": "hello from ny note-list"
+      "id": 3
     },
     {
-      "id": 2,
-      "completed": true,
-      "text": "second hello from ny note-list"
-    },
-    {
-      "id": 3,
-      "completed": false,
-      "text": "third hello from ny note-list"
-    },
-    {
-      "text": "ghdg",
+      "text": "clean warnings from console log",
       "completed": false,
       "id": 4
+    },
+    {
+      "text": "say hello to everyone",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "text": "say thanks to Margit",
+      "completed": false,
+      "id": 6
     }
   ]
 }
