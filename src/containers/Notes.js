@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import * as actionTypes from "../store/actions";
 import { removeOneNote, toggleOneNote } from "../store/actions";
 
 const Notes = () => {
   const notes = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const toggleTodo = (id) => ({
-    type: actionTypes.TOGGLE_TODO,
-    id: id,
-  });
+  const handleDelete = (event, id) => {
+    event.stopPropagation();
+    dispatch(removeOneNote(id));
+  };
 
   return (
     <div>
@@ -32,7 +31,7 @@ const Notes = () => {
           >
             {note.text}
 
-            <button onClick={() => dispatch(removeOneNote(note.id))}>
+            <button onClick={(event) => handleDelete(event, note.id)}>
               Remove
             </button>
           </li>
