@@ -17,9 +17,8 @@ export const removeNote = async (id) => {
   return response.data;
 };
 
-export const editNote = async (id, completed) => {
-  const response = await axios.put(`${baseUrl}/${id}`, {
-    completed: !completed,
-  });
+export const editNote = async (id, note) => {
+  const response = await axios.put(`${baseUrl}/${id}`, note);
+  console.log(response.data);
   return response.data;
 };

@@ -36,9 +36,9 @@ export const removeOneNote = (id) => {
   };
 };
 
-export const toggleOneNote = (id, completed) => {
+export const toggleOneNote = (id, note) => {
   return async (dispatch) => {
-    const toggledNote = await editNote(id, completed);
+    const toggledNote = await editNote(id, note);
     /* const notes = await getAll(); */
     dispatch({
       type: TOGGLE_TODO,

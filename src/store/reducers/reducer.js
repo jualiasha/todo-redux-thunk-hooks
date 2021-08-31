@@ -9,7 +9,16 @@ const reducer = (state = [], action) => {
     case actionTypes.ADD_TODO:
       return [...state, action.data];
     case actionTypes.TOGGLE_TODO:
-      return [...state, action.data];
+      return state.map((note) => {
+        if (note.id === action.data.id) {
+          return {
+            ...note,
+            ...action.data,
+          };
+        } else {
+          return note;
+        }
+      });
 
     /* const noteToChange = state.find((n) => n.id === action.id);
       const changeNote = {

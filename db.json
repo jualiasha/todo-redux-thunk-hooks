@@ -2,12 +2,12 @@
   "notes": [
     {
       "text": "clean warnings from console log",
-      "completed": false,
+      "completed": true,
       "id": 4
     },
     {
       "text": "say hello to everyone",
-      "completed": false,
+      "completed": true,
       "id": 5
     },
     {
@@ -16,7 +16,8 @@
       "id": 6
     },
     {
-      "completed": true,
+      "text": "hello world",
+      "completed": false,
       "id": 7
     }
   ]

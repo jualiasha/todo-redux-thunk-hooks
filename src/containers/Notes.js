@@ -19,10 +19,19 @@ const Notes = () => {
         {notes.map((note) => (
           <li
             key={note.id}
-            onClick={() => dispatch(toggleOneNote(note.id, note.completed))}
+            onClick={() =>
+              dispatch(
+                toggleOneNote(note.id, {
+                  text: note.text,
+                  completed: !note.completed,
+                  id: note.id,
+                })
+              )
+            }
             className={note.completed ? "completed" : ""}
           >
             {note.text}
+
             <button onClick={() => dispatch(removeOneNote(note.id))}>
               Remove
             </button>
