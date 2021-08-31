@@ -1,4 +1,4 @@
-import { getAll, createNew, removeNote } from "../services/notes";
+import { getAll, createNew, removeNote, editNote } from "../services/notes";
 
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
@@ -32,6 +32,17 @@ export const removeOneNote = (id) => {
     dispatch({
       type: REMOVE_NOTES,
       data: notes,
+    });
+  };
+};
+
+export const toggleOneNote = (id, completed) => {
+  return async (dispatch) => {
+    const toggledNote = await editNote(id, completed);
+    /* const notes = await getAll(); */
+    dispatch({
+      type: TOGGLE_TODO,
+      data: toggledNote,
     });
   };
 };

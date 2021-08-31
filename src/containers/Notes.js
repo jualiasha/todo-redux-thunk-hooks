@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import * as actionTypes from "../store/actions";
-import { removeOneNote } from "../store/actions";
+import { removeOneNote, toggleOneNote } from "../store/actions";
 
 const Notes = () => {
   const notes = useSelector((state) => state);
@@ -19,8 +19,8 @@ const Notes = () => {
         {notes.map((note) => (
           <li
             key={note.id}
-            onClick={() => dispatch(toggleTodo(note.id))}
-            className={note.completed ? "strike" : ""}
+            onClick={() => dispatch(toggleOneNote(note.id, note.completed))}
+            className={note.completed ? "completed" : ""}
           >
             {note.text}
             <button onClick={() => dispatch(removeOneNote(note.id))}>
